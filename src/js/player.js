@@ -1,6 +1,6 @@
 Crafty.c('Player', {
     init: function() {
-        this.requires('Renderable, ViewportBounded, Collision')
+        this.requires('Renderable, ViewportBounded, Collision, PlatformerGravity')
         ._setup()
         // set sprite
         .spriteName('mainPlayer')
@@ -10,7 +10,7 @@ Crafty.c('Player', {
         //.platformerControls(5, 8)
         // enable gravity, stop when we hit 'Platform' components
         // FIX: colide with whaattt?!
-        //.platformerGravity()
+        .platformerGravity('Platform')
         // enable collision (not used by platformer gravity/controls but would be useful for other things)
         .collision();
     },
