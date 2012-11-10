@@ -4,8 +4,8 @@ var Game = function() {
   var _loading = null;
 
   this.initCrafty = function() {
-    console.log("Page ready, starting CraftyJS");
-    Crafty.init(1024, 700);
+    console.log('Page ready, starting CraftyJS');
+    Crafty.init(1024, 768);
     Crafty.canvas.init();
   };
 
@@ -29,10 +29,10 @@ var Game = function() {
 
     // set up sprites
     Crafty.sprite('assets/images/box.png', {
-        platform: [0, 0, 100, 16]
+      platform: [0, 0, 100, 16]
     });
     Crafty.sprite('assets/images/game-background.png', {
-        background: [0, 0, 1500, 700]
+      background: [0, 0, 1500, 700]
     });
 
     Crafty.e('Background').attr({x: 0, y: 0, w: 1500, h: 700});
@@ -44,10 +44,10 @@ var Game = function() {
     console.log('Creating Loading Scene...');
     _loading = Crafty.e('2D, Canvas, Text, Delay');
     _loading.attr({
-        x: 462,
-        y: 374,
-        w: 100,
-        h: 20
+      x: 462,
+      y: 374,
+      w: 100,
+      h: 20
     });
 
     Crafty.load(['assets/images/box.png', 'assets/images/game-background.png'], _onLoaded, _onProgress, _onError);
