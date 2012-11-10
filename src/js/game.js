@@ -40,7 +40,7 @@ var Game = function() {
       .animate('PlayerRunning', 25, -1); // start animation;
 
     Crafty.e('Background').attr({x: 0, y: 0, w: 1500, h: 700});
-    Crafty.e('Platform').attr({x: 0, y: 0});
+    Crafty.e('Platform').attr({x: 100, y: 500});
   };
 
   this.loadingScene = function() {

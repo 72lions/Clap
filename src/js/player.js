@@ -16,7 +16,7 @@ Crafty.c('Player', {
     },
 
     _setup: function() {
-        Crafty.sprite(70, 130, 'assets/images/man.png', {
+        Crafty.sprite(70, 124, 'assets/images/man.png', {
             mainPlayer: [0, 0]
         });
         return this;
