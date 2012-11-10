@@ -35,6 +35,10 @@ var Game = function() {
       background: [0, 0, 1500, 700]
     });
 
+    Crafty.e('SpriteAnimation', 'Player')
+      .animate('PlayerRunning', 0, 0, 7) //setup animation
+      .animate('PlayerRunning', 25, -1); // start animation;
+
     Crafty.e('Background').attr({x: 0, y: 0, w: 1500, h: 700});
     Crafty.e('Platform').attr({x: 0, y: 0});
   };
@@ -50,7 +54,7 @@ var Game = function() {
       h: 20
     });
 
-    Crafty.load(['assets/images/box.png', 'assets/images/game-background.png'], _onLoaded, _onProgress, _onError);
+    Crafty.load(['assets/images/box.png','assets/images/game-background.png', 'assets/images/man.png'], _onLoaded, _onProgress, _onError);
   };
 
   this.init = function() {
