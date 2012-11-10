@@ -8,5 +8,5 @@ Crafty.c('Renderable', {
   spriteName: function(name) {
     this.requires(name);
     return this; // so we can chain calls to setup functions
-  };
+  }
 });
