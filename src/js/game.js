@@ -5,7 +5,7 @@ var Game = function() {
 
   this.initCrafty = function() {
     console.log('Page ready, starting CraftyJS');
-    Crafty.init(1024, 768);
+    Crafty.init(1024, 700);
     Crafty.canvas.init();
   };
 
@@ -44,7 +44,7 @@ var Game = function() {
     var starterPlatforms = 10;
     for (var i=0; i<starterPlatforms; i++) {
       var xPosition = Math.floor((Math.random() * 1000) + 1);
-      Crafty.e('Platform').attr({x: xPosition, y: 683});
+      Crafty.e('Platform').attr({x: xPosition, y: 684});
     }
   };
 
