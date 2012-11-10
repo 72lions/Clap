@@ -1,11 +1,10 @@
 Crafty.c('Player', {
     init: function() {
-        this.requires('Renderable, ViewportBounded, Collision, PlatformerGravity, PlatformerControls')
+        this.requires('Renderable, ViewportLocked, Collision, PlatformerGravity, PlatformerControls')
+
         ._setup()
         // set sprite
         .spriteName('mainPlayer')
-        // set starting position
-        .attr({ x: 100, y: 200 })
         // set platform-style controller up with walk + jump speeds
         .platformerControls(5, 8)
         // enable gravity, stop when we hit 'Platform' components
@@ -13,6 +12,10 @@ Crafty.c('Player', {
         .platformerGravity('Platform')
         // enable collision (not used by platformer gravity/controls but would be useful for other things)
         .collision();
+
+        this.bind('EnterFrame', function() {
+            this.x = this.x + 2;
+        });
     },
 
     _setup: function() {

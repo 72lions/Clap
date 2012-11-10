@@ -37,9 +37,10 @@ var Game = function() {
 
     Crafty.e('SpriteAnimation', 'Player')
       .animate('PlayerRunning', 0, 0, 7) //setup animation
-      .animate('PlayerRunning', 25, -1); // start animation;
+      .animate('PlayerRunning', 25, -1) // start animation;
+      .attr({x: 100, y: 576, w: 70, h: 124}); 
 
-    Crafty.e('Background').attr({x: 0, y: 0, w: 1500, h: 700});
+    Crafty.e('RepeatedBackground').attr({x: 0, y: 0});
 
     var starterPlatforms = 10;
     for (var i=0; i<starterPlatforms; i++) {

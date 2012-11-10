@@ -10,3 +10,10 @@ Crafty.c('Renderable', {
     return this; // so we can chain calls to setup functions
   }
 });
+
+// Use this to lock the viewport to an entity
+Crafty.c('ViewportLocked', {
+  init: function() {
+  	Crafty.viewport.follow(this, 100 - Crafty.viewport.width / 2, Crafty.viewport.height / 2 - this.height);
+  }
+});
