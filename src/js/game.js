@@ -15,7 +15,11 @@ var Game = function() {
   };
 
   var _jump = function(event) {
-    player.jump();
+    if (!player) {
+      Crafty.scene('main');
+    } else {
+      player.jump();
+    }
   };
 
   this.mainScene = function() {
