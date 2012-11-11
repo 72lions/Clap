@@ -16,6 +16,7 @@ Crafty.c('Player', {
         this.bind('EnterFrame', function(frame) {
             //this.x = this.x + 2;
             if (this.y > 700) {
+                this.trigger('playerDied');
                 this.destroy();
             }
         });

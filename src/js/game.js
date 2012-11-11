@@ -41,14 +41,20 @@ var Game = function() {
     player = Crafty.e('SpriteAnimation', 'Player')
       .animate('PlayerRunning', 0, 0, 7) //setup animation
       .animate('PlayerRunning', 25, -1) // start animation;
-      .attr({x: 100, y: 576, w: 70, h: 124});
+      .attr({x: 100, y: 576, w: 70, h: 124})
+      .bind('playerDied', function() {
+        Crafty.scene('gameOver');
+        Crafty.unbind('EnterFrame', _self.moveBackground);
+      });
 
-    Crafty.bind('EnterFrame', function(frame) {
-      Crafty.stage.elem.style.backgroundPosition = -frame.frame + "px 0px";
-    });
+    Crafty.bind('EnterFrame', _self.moveBackground);
 
     var level1 = new Level1();
     level1.start();
+  };
+
+  this.moveBackground = function(frame) {
+    Crafty.stage.elem.style.backgroundPosition = -frame.frame + "px 0px";
   };
 
   this.loadingScene = function() {
@@ -65,7 +71,8 @@ var Game = function() {
     Crafty.load([
       'assets/images/box.png',
       'assets/images/game-background.png',
-      'assets/images/man.png'
+      'assets/images/man.png',
+      'assets/images/game-over.png'
     ], _onLoaded, _onProgress, _onError);
   };
 
@@ -76,7 +83,6 @@ var Game = function() {
     _audioInput.bind('JUMP', _jump);
     _audioInput.initialize();
   };
-
 };
 
 // kick off the game when the web page is ready
