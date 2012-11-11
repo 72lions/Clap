@@ -1,12 +1,16 @@
 var Game = function() {
 
+  EventTarget.call(this);
+
   var _self = this;
   var _loading = null;
+  var _audioInput = new AudioInput();
 
   this.initCrafty = function() {
     console.log('Page ready, starting CraftyJS');
     Crafty.init(1024, 700);
     Crafty.canvas.init();
+    Crafty.scene('loading');
   };
 
   var _onLoaded = function() {
@@ -24,6 +28,10 @@ var Game = function() {
     _loading.text('Dude!! Error!');
   };
 
+  var _jump = function(event) {
+    console.log('MUST JUMP!!!', event.params.strength);
+  };
+
   this.mainScene = function() {
     console.log('Showing the main scene...');
 
@@ -38,7 +46,7 @@ var Game = function() {
     Crafty.e('SpriteAnimation', 'Player')
       .animate('PlayerRunning', 0, 0, 7) //setup animation
       .animate('PlayerRunning', 25, -1) // start animation;
-      .attr({x: 100, y: 576, w: 70, h: 124}); 
+      .attr({x: 100, y: 576, w: 70, h: 124});
 
     Crafty.e('RepeatedBackground').attr({x: 0, y: 0});
 
@@ -60,12 +68,19 @@ var Game = function() {
       h: 20
     });
 
-    Crafty.load(['assets/images/box.png','assets/images/game-background.png', 'assets/images/man.png'], _onLoaded, _onProgress, _onError);
+    Crafty.load([
+      'assets/images/box.png',
+      'assets/images/game-background.png',
+      'assets/images/man.png'
+    ], _onLoaded, _onProgress, _onError);
   };
 
   this.init = function() {
     Crafty.scene('loading', this.loadingScene);
     Crafty.scene('main', this.mainScene);
+    _audioInput.bind('READY', this.initCrafty);
+    _audioInput.bind('JUMP', _jump);
+    _audioInput.initialize();
   };
 
 };
@@ -75,9 +90,5 @@ $(document).ready(function() {
 
   var game = new Game();
   game.init();
-  game.initCrafty();
-
-  // start loading things
-  Crafty.scene('loading');
 
 });
