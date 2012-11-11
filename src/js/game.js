@@ -5,6 +5,7 @@ var Game = function() {
   var _self = this;
   var _loading = null;
   var _audioInput = new AudioInput();
+  var player;
 
   this.initCrafty = function() {
     console.log('Page ready, starting CraftyJS');
@@ -29,13 +30,13 @@ var Game = function() {
   };
 
   var _jump = function(event) {
-    console.log('MUST JUMP!!!', event.params.strength);
+    player.jump();
   };
 
   this.mainScene = function() {
     console.log('Showing the main scene...');
 
-    Crafty.e('SpriteAnimation', 'Player')
+    player = Crafty.e('SpriteAnimation', 'Player')
       .animate('PlayerRunning', 0, 0, 7) //setup animation
       .animate('PlayerRunning', 25, -1) // start animation;
       .attr({x: 100, y: 576, w: 70, h: 124});

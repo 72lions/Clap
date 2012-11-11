@@ -23,5 +23,9 @@ Crafty.c("PlatformerControls", {
         });
 
         return this;
+    },
+
+    jump: function() {
+        this._up = true;
     }
 });
