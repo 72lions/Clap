@@ -12,6 +12,11 @@ var Level1 = function() {
 		Crafty.e('Platform').attr({x: 1500, y: 684});
 		Crafty.e('Platform').attr({x: 1700, y: 684});
 		Crafty.e('Platform').attr({x: 1900, y: 684});
+		Crafty.e('Platform').attr({x: 2150, y: 550});
+		Crafty.e('Platform').attr({x: 2350, y: 550});
+		Crafty.e('Platform').attr({x: 2650, y: 400});
+		Crafty.e('Platform').attr({x: 2950, y: 250});
+		Crafty.e('Platform').attr({x: 3250, y: 684});
 	};
 
 	var _setAssets = function() {

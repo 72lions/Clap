@@ -11,12 +11,13 @@ Crafty.scene('loader', function() {
 
   Crafty.load([
     'assets/images/box.png',
-    'assets/images/man.png'
+    'assets/images/man.png',
+    'assets/images/start-screen.png'
   ], 
   function() {
     console.log('Assets Loaded');
-    _loading.text('Clap your hands to start the game!');
-    Crafty.background('url(assets/images/game-over.png)');
+    //_loading.text('Clap your hands to start the game!');
+    Crafty.background('url(assets/images/start-screen.png)');
   },
 
   function(progress) {
