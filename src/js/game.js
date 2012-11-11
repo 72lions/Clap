@@ -35,26 +35,13 @@ var Game = function() {
   this.mainScene = function() {
     console.log('Showing the main scene...');
 
-    // set up sprites
-    Crafty.sprite('assets/images/box.png', {
-      platform: [0, 0, 100, 16]
-    });
-    Crafty.sprite('assets/images/game-background.png', {
-      background: [0, 0, 1500, 700]
-    });
-
     Crafty.e('SpriteAnimation', 'Player')
       .animate('PlayerRunning', 0, 0, 7) //setup animation
       .animate('PlayerRunning', 25, -1) // start animation;
       .attr({x: 100, y: 576, w: 70, h: 124});
 
-    Crafty.e('RepeatedBackground').attr({x: 0, y: 0});
-
-    var starterPlatforms = 10;
-    for (var i=0; i<starterPlatforms; i++) {
-      var xPosition = Math.floor((Math.random() * 1000) + 1);
-      Crafty.e('Platform').attr({x: xPosition, y: 684});
-    }
+    var level1 = new Level1();
+    level1.start();
   };
 
   this.loadingScene = function() {
