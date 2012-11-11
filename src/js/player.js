@@ -15,6 +15,9 @@ Crafty.c('Player', {
 
         this.bind('EnterFrame', function() {
             this.x = this.x + 2;
+            if (this.y > 700) {
+                this.destroy();
+            }
         });
     },
 
