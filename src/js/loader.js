@@ -22,7 +22,6 @@ Crafty.scene('loader', function() {
 
   function(progress) {
     console.log('On progress...');
-    _loading.text('Loading ' + progress.precent + '% complete');
   },
 
   function() {
