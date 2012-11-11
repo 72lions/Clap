@@ -1,6 +1,6 @@
 Crafty.c('Player', {
     init: function() {
-        this.requires('Renderable, ViewportLocked, Collision, PlatformerGravity, PlatformerControls')
+        this.requires('Renderable, Collision, PlatformerGravity, PlatformerControls')
 
         ._setup()
         // set sprite
@@ -13,8 +13,8 @@ Crafty.c('Player', {
         // enable collision (not used by platformer gravity/controls but would be useful for other things)
         .collision();
 
-        this.bind('EnterFrame', function() {
-            this.x = this.x + 2;
+        this.bind('EnterFrame', function(frame) {
+            //this.x = this.x + 2;
             if (this.y > 700) {
                 this.destroy();
             }

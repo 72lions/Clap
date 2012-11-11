@@ -1,12 +1,16 @@
 Crafty.c('Platform', {
 
   init: function() {
-    this.requires('Renderable, ViewportBounded, Collision')
+    this.requires('Renderable, Collision')
     .spriteName('platform')
-    .attr({x: 0, y: 0})
+    .attr({x: Crafty.viewport.width, y: 684})
     .collision();
 
     console.log('Platform is initialized...');
+
+    this.bind('EnterFrame', function() {
+    	this.x = this.x - 2;
+    });
   }
 
 });

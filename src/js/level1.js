@@ -2,7 +2,6 @@ var Level1 = function() {
 
 	this.start = function() {
 		_setAssets();
-		_setBackground();
 
 		Crafty.e('Platform').attr({x: 0, y: 684});
 		Crafty.e('Platform').attr({x: 200, y: 684});
@@ -19,12 +18,12 @@ var Level1 = function() {
 		Crafty.sprite('assets/images/box.png', {
 			platform: [0, 0, 200, 16]
 		});
-		Crafty.sprite('assets/images/game-background.png', {
-			background: [0, 0, 1500, 700]
-		});
 	};
 
-	var _setBackground = function() {
-		Crafty.e('RepeatedBackground').attr({x: 0, y: 0});
-	};
+	/*Crafty.bind('EnterFrame', function(frame) {
+		if (_intervalIndex < _platformInterval - 1 && frame.frame == _platformIterval[_intervalIndex]) {
+			Crafty.e('Platform');
+			_intervalIndex++;
+		}
+	});*/
 };

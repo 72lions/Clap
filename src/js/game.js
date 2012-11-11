@@ -36,10 +36,16 @@ var Game = function() {
   this.mainScene = function() {
     console.log('Showing the main scene...');
 
+    Crafty.background('url(assets/images/game-background.png)');
+
     player = Crafty.e('SpriteAnimation', 'Player')
       .animate('PlayerRunning', 0, 0, 7) //setup animation
       .animate('PlayerRunning', 25, -1) // start animation;
       .attr({x: 100, y: 576, w: 70, h: 124});
+
+    Crafty.bind('EnterFrame', function(frame) {
+      Crafty.stage.elem.style.backgroundPosition = -frame.frame + "px 0px";
+    });
 
     var level1 = new Level1();
     level1.start();
