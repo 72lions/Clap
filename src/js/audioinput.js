@@ -19,9 +19,9 @@ var AudioInput = function() {
 
       _self.trigger('READY');
 
-      var gainNode = context.createGainNode();
-      gainNode.type = 3;
-      gainNode.gain.value = 1;
+      //var gainNode = context.createGainNode();
+      //gainNode.type = 3;
+      //gainNode.gain.value = 1;
 
       var microphone = context.createMediaStreamSource(stream);
       var analyser = context.createAnalyser();
@@ -32,8 +32,9 @@ var AudioInput = function() {
 
       microphone.connect(analyser);
       analyser.connect(javascriptNode);
-      javascriptNode.connect(gainNode);
-      gainNode.connect(context.destination);
+      javascriptNode.connect(context.destination);
+      //javascriptNode.connect(gainNode);
+      //gainNode.connect(context.destination);
 
       javascriptNode.onaudioprocess = function() {
         // get the average for the first channel
@@ -56,7 +57,6 @@ var AudioInput = function() {
       };
 
     });
-
 
   };
 
