@@ -12,7 +12,10 @@ Crafty.scene('loader', function() {
   Crafty.load([
     'assets/images/box.png',
     'assets/images/man.png',
-    'assets/images/start-screen.png'
+    'assets/images/start-screen.png',
+    'assets/sounds/jump.mp3',
+    'assets/sounds/jump.ogg',
+    'assets/sounds/jump.wav'
   ], 
   function() {
     console.log('Assets Loaded');

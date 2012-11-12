@@ -1,15 +1,13 @@
-var AudioInput = function() {
+Crafty.c('AudioInput', {
 
-  EventTarget.call(this);
-
-  var _self = this;
-
-  var _hasGetUserMedia = function() {
+  _hasGetUserMedia: function() {
     return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia || navigator.msGetUserMedia);
-  };
+  },
 
-  var _enableMicrophone = function() {
+  _enableMicrophone: function() {
+
+    var _self = this;
 
     console.log('We have getUserMedia');
 
@@ -49,23 +47,21 @@ var AudioInput = function() {
         }
 
         average = total / array.length;
-
         if (average >= 60) {
           _self.trigger('JUMP', {strength: average});
         }
-
       };
 
     });
 
-  };
+  },
 
-  this.initialize = function() {
-    if (_hasGetUserMedia()) {
-      _enableMicrophone();
+  init: function() {
+    if (this._hasGetUserMedia()) {
+      this._enableMicrophone();
     } else {
       alert('getUserMedia() is not supported in your browser');
     }
-  };
+  }
 
-};
+});

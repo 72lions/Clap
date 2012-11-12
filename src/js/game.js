@@ -4,7 +4,7 @@ var Game = function() {
 
   var _self = this;
   var _loading = null;
-  var _audioInput = new AudioInput();
+  var _audioInput;
   var player;
 
   this.initCrafty = function() {
@@ -18,6 +18,7 @@ var Game = function() {
     if (!player) {
       Crafty.scene('main');
     } else {
+      Crafty.audio.play('jump');
       player.jump();
     }
   };
@@ -47,10 +48,10 @@ var Game = function() {
   };
 
   this.init = function() {
+    Crafty.e('AudioInput')
+      .bind('READY', this.initCrafty)
+      .bind('JUMP', _jump);
     Crafty.scene('main', this.mainScene);
-    _audioInput.bind('READY', this.initCrafty);
-    _audioInput.bind('JUMP', _jump);
-    _audioInput.initialize();
   };
 };
 

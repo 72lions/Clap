@@ -26,6 +26,12 @@ Crafty.c('Player', {
         Crafty.sprite(70, 124, 'assets/images/man.png', {
             mainPlayer: [0, 0]
         });
+        Crafty.audio.add('jump', [
+            'assets/sounds/jump.mp3',
+            'assets/sounds/jump.ogg',
+            'assets/sounds/jump.wav'
+        ]);
+        
         return this;
     }
 });
