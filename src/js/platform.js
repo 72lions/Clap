@@ -9,7 +9,7 @@ Crafty.c('Platform', {
     console.log('Platform is initialized...');
 
     this.bind('EnterFrame', function() {
-    	this.x = this.x - 2;
+      this.x = this.x - 2;
     });
   }
 

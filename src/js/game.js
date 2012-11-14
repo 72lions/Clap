@@ -9,7 +9,7 @@ var Game = function() {
 
   this.initCrafty = function() {
     console.log('Page ready, starting CraftyJS');
-    Crafty.init(1024, 700);
+    Crafty.init(1024, 600);
     Crafty.canvas.init();
     Crafty.scene('loader');
   };
@@ -33,9 +33,9 @@ var Game = function() {
       .animate('PlayerRunning', 25, -1) // start animation;
       .attr({x: 100, y: 576, w: 70, h: 124})
       .bind('playerDied', function() {
-        Crafty.scene('gameOver');
-        Crafty.unbind('EnterFrame', _self.moveBackground);
-      });
+          Crafty.scene('gameOver');
+          Crafty.unbind('EnterFrame', _self.moveBackground);
+        });
 
     Crafty.bind('EnterFrame', _self.moveBackground);
 
@@ -44,13 +44,15 @@ var Game = function() {
   };
 
   this.moveBackground = function(frame) {
-    Crafty.stage.elem.style.backgroundPosition = -frame.frame + "px 0px";
+    Crafty.stage.elem.style.backgroundPosition = -frame.frame + 'px 0px';
   };
 
   this.init = function() {
-    Crafty.e('AudioInput')
-      .bind('READY', this.initCrafty)
-      .bind('JUMP', _jump);
+    var audioInput = new AudioInput();
+    audioInput.bind('READY', this.initCrafty);
+    audioInput.bind('JUMP', _jump);
+    audioInput.init();
+
     Crafty.scene('main', this.mainScene);
   };
 };

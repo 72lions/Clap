@@ -29,11 +29,11 @@ Crafty.c('PlatformerGravity', {
   * ~~~
   */
   platformerGravity: function(comp) {
-      if (comp) this._anti = comp;
+    if (comp) this._anti = comp;
 
-      this.bind('EnterFrame', this._enterFrame);
+    this.bind('EnterFrame', this._enterFrame);
 
-      return this;
+    return this;
   },
 
   /**

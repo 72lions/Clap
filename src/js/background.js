@@ -1,8 +1,8 @@
 Crafty.c('Background', {
   init: function() {
-	  this.requires('Renderable')
+    this.requires('Renderable')
       .spriteName('background');
-	  //Crafty.background('url(assets/images/game-background.png) repeat-x');
+    //Crafty.background('url(assets/images/game-background.png) repeat-x');
   }
 });
 

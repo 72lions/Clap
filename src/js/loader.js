@@ -16,7 +16,7 @@ Crafty.scene('loader', function() {
     'assets/sounds/jump.mp3',
     'assets/sounds/jump.ogg',
     'assets/sounds/jump.wav'
-  ], 
+  ],
   function() {
     console.log('Assets Loaded');
     //_loading.text('Clap your hands to start the game!');
