@@ -1,4 +1,4 @@
-Alfon Walks
+Clap
 ===========
 
 A game build with Crafty.js. It's a no button game and your only purpose is not to kill Alfon!
