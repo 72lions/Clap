@@ -10,6 +10,9 @@ Crafty.c('Platform', {
 
     this.bind('EnterFrame', function() {
       this.x = this.x - 2;
+      if (this.x + this.w < 0) {
+        this.destroy();
+      }
     });
   }
 
