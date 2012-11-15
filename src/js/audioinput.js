@@ -74,7 +74,7 @@ var AudioInput = function() {
     if (_hasGetUserMedia()) {
       _enableMicrophone();
     } else {
-      alert('getUserMedia() is not supported in your browser');
+      //alert('getUserMedia() is not supported in your browser');
     }
   };
 

@@ -7,17 +7,18 @@ var Game = function() {
   this.initCrafty = function() {
     console.log('Page ready, starting CraftyJS');
     Crafty.init(1024, 600);
-    //Crafty.canvas.init();
+    Crafty.canvas.init();
     Crafty.scene('loader');
   };
 
   this.init = function() {
     var audioInput = new AudioInput();
-    audioInput.bind('READY', this.initCrafty);
+    //audioInput.bind('READY', this.initCrafty);
     audioInput.bind('JUMP', function() {
       Crafty.trigger('Clap');
     });
     audioInput.init();
+    this.initCrafty();
   };
 };
 
