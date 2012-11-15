@@ -22,6 +22,10 @@ Crafty.scene('Level1',
       [3800, 584],
     ];
 
+    var _moveBackground = function(frame) {
+      Crafty.stage.elem.style.backgroundPosition = -frame.frame + 'px 0px';
+    }
+
     Crafty.background('url(assets/images/game-background.png)');
 
     Crafty.sprite('assets/images/box.png', {
@@ -40,11 +44,10 @@ Crafty.scene('Level1',
       .attr({x: 100, y: 576, w: 70, h: 124})
       .bind('playerDied', function() {
         Crafty.scene('gameOver');
+        Crafty.unbind('EnterFrame', _moveBackground);
       });
 
-    Crafty.bind('EnterFrame', function(frame) {
-      Crafty.stage.elem.style.backgroundPosition = -frame.frame + 'px 0px';
-    });
+    Crafty.bind('EnterFrame', _moveBackground);
     Crafty.bind('Clap', function() {
       Crafty.audio.play('jump');
       _player.jump();
