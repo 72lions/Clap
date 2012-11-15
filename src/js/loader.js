@@ -21,6 +21,7 @@ Crafty.scene('loader',
       console.log('Assets Loaded');
       //_loading.text('Clap your hands to start the game!');
       Crafty.background('url(assets/images/start-screen.png)');
+      Crafty.e('GameStarter');
     },
 
     function(progress) {
@@ -30,11 +31,6 @@ Crafty.scene('loader',
     function() {
       console.log('On error...');
       _loading.text('Dude!! Error!');
-    });
-
-    Crafty.bind('Clap', Levels.level1);
-  },
-  function() {
-    Crafty.unbind('Clap', Levels.level1);
+    });    
   }
 );

@@ -11,9 +11,14 @@ Crafty.c('Renderable', {
   }
 });
 
-// Use this to lock the viewport to an entity
-Crafty.c('ViewportLocked', {
+Crafty.c('GameStarter', {
   init: function() {
-    Crafty.viewport.follow(this, 100 - Crafty.viewport.width / 2, Crafty.viewport.height / 2 - this.height);
+    this.requires('KeyboardControls')
+        .bind('Clap', this._start);
+  },
+
+  _start: function() {
+    Crafty.scene('Level1');
+    this.unbind('Clap', this._start).destroy();
   }
 });

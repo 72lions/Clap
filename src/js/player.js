@@ -21,10 +21,6 @@ Crafty.c('Player', {
             this.destroy();
           }
         });
-
-    Crafty.bind('Clap', function() {
-      _self.jump();
-    });
   },
 
   _setup: function() {
