@@ -1,10 +1,12 @@
 Crafty.c('Platform', {
 
+  lastHeight: 584,
+
   init: function() {
     this.requires('Renderable, Collision')
-    .spriteName('platform')
-    .attr({x: Crafty.viewport.width, y: 684})
-    .collision();
+      .spriteName('platform')
+      .attr({x: Crafty.viewport.width, y: 684})
+      .collision();
 
     console.log('Platform is initialized...');
 
@@ -14,6 +16,11 @@ Crafty.c('Platform', {
         this.destroy();
       }
     });
+  },
+
+  randomPosition: function(prevY) {
+
+    //this.y = Math.
   }
 
 });
