@@ -1,3 +1,9 @@
+var Levels = {
+  level1: function() {
+    Crafty.scene('Level1');
+  }
+};
+
 Crafty.scene('Level1', 
   function() {
 
@@ -22,11 +28,9 @@ Crafty.scene('Level1',
       [3800, 584],
     ];
 
-    var _moveBackground = function(frame) {
-      Crafty.stage.elem.style.backgroundPosition = -frame.frame + 'px 0px';
-    }
-
-    Crafty.background('url(assets/images/game-background.png)');
+    var _background = Crafty.e('Background')
+        .image('assets/images/game-background.png')
+        .scroll();
 
     Crafty.sprite('assets/images/box.png', {
       platform: [0, 0, 200, 16]
@@ -44,14 +48,8 @@ Crafty.scene('Level1',
       .attr({x: 100, y: 576, w: 70, h: 124})
       .bind('playerDied', function() {
         Crafty.scene('gameOver');
-        Crafty.unbind('EnterFrame', _moveBackground);
+        _background.unload().destroy();
       });
-
-    Crafty.bind('EnterFrame', _moveBackground);
-    Crafty.bind('Clap', function() {
-      Crafty.audio.play('jump');
-      _player.jump();
-    });
   },
   function() {
 

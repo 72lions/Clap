@@ -26,6 +26,11 @@ Crafty.c('PlatformerControls', {
   },
 
   jump: function() {
+    Crafty.audio.play('jump');
     this._up = true;
   }
+});
+
+Crafty.c('AudioControls', {
+  
 });

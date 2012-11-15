@@ -1,5 +1,7 @@
 Crafty.c('Player', {
   init: function() {
+    var _self = this;
+
     this.requires('Renderable, Collision, PlatformerGravity, PlatformerControls')
 
         ._setup()
@@ -11,14 +13,17 @@ Crafty.c('Player', {
         // FIX: colide with whaattt?!
         .platformerGravity('Platform')
         // enable collision (not used by platformer gravity/controls but would be useful for other things)
-        .collision();
+        .collision()
 
-    this.bind('EnterFrame', function(frame) {
-      //this.x = this.x + 2;
-      if (this.y > 700) {
-        this.trigger('playerDied');
-        this.destroy();
-      }
+        .bind('EnterFrame', function(frame) {
+          if (this.y > 700) {
+            this.trigger('playerDied');
+            this.destroy();
+          }
+        });
+
+    Crafty.bind('Clap', function() {
+      _self.jump();
     });
   },
 

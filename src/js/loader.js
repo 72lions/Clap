@@ -1,9 +1,3 @@
-var Levels = {
-  level1: function() {
-    Crafty.scene('Level1');
-  }
-};
-
 Crafty.scene('loader', 
   function() {
     console.log('Creating Loading Scene...');
