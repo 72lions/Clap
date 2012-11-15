@@ -5,8 +5,9 @@ A game build with Crafty.js. It's a no button game and your only purpose is not 
 Alfon likes to walk but he likes to jump a lot also and they only way he can jump is by scaring him!
 So make a loud noise to scare him and he will jump!
 
-Requirements
-============
+Requirements for AudioInput to work
+===================================
+If audioInput should be used to trigger jumping, these requirements need to be fulfilled:
 
 1. You need Chrome Canary
 2. Enable the 'Web Audio Input' from the chrome://flags.
