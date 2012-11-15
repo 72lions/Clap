@@ -1,26 +1,22 @@
 Crafty.c('Platform', {
 
-  lastHeight: 584,
+  _speed: 2,
 
   init: function() {
-    this.requires('Renderable, Collision')
-      .spriteName('platform')
-      .attr({x: Crafty.viewport.width, y: 684})
-      .collision();
-
-    console.log('Platform is initialized...');
-
-    this.bind('EnterFrame', function() {
-      this.x = this.x - 2;
-      if (this.x + this.w < 0) {
-        this.destroy();
-      }
-    });
+    this.requires('Renderable')
+        .spriteName('platform')
+        .attr({x: Crafty.viewport.width, y: 584})
+        .bind('EnterFrame', function() {
+          this.x = this.x - this._speed;
+          if (this.x + this.w < 0) {
+            this.destroy();
+          }
+        });
   },
 
-  randomPosition: function(prevY) {
-
-    //this.y = Math.
+  speed: function(spd) {
+    this._speed = spd;
+    return this;
   }
 
 });
