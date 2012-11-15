@@ -2,13 +2,13 @@ Crafty.c('Player', {
   init: function() {
     var _self = this;
 
-    this.requires('Renderable, Collision, PlatformerGravity, PlatformerControls')
+    this.requires('Renderable, Collision, PlatformerGravity, Jumper, KeyboardControls')
 
         ._setup()
         // set sprite
         .spriteName('mainPlayer')
         // set platform-style controller up with walk + jump speeds
-        .platformerControls(5, 8)
+        .jumper(8)
         // enable gravity, stop when we hit 'Platform' components
         // FIX: colide with whaattt?!
         .platformerGravity('Platform')

@@ -1,7 +1,7 @@
 Crafty.c('Background', {
   _speed: 1,
 
-  _moveBackground: function(frame) {
+  _scrollBackground: function(frame) {
     Crafty.stage.elem.style.backgroundPosition = -frame.frame + 'px 0px';
   },
 
@@ -15,12 +15,12 @@ Crafty.c('Background', {
 
   scroll: function(speed) {
     this._speed = speed || 1;
-    Crafty.bind('EnterFrame', this._moveBackground);
+    Crafty.bind('EnterFrame', this._scrollBackground);
     return this;
   },
 
   unload: function() {
-    Crafty.unbind('EnterFrame', this._moveBackground);
+    Crafty.unbind('EnterFrame', this._scrollBackground);
     return this;
   }
 });

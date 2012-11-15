@@ -7,7 +7,7 @@ var Game = function() {
   this.initCrafty = function() {
     console.log('Page ready, starting CraftyJS');
     Crafty.init(1024, 600);
-    Crafty.canvas.init();
+    //Crafty.canvas.init();
     Crafty.scene('loader');
   };
 

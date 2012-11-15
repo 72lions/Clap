@@ -38,7 +38,6 @@ Crafty.scene('Level1',
 
     for (var i in _platformPositions) {
       var pos = _platformPositions[i];
-      console.log(pos);
       Crafty.e('Platform').attr({x: pos[0], y: pos[1]});
     }
 
