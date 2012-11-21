@@ -1,24 +1,26 @@
 Crafty.c('Background', {
-  init: function() {
-    this.requires('Renderable')
-      .spriteName('background');
-    //Crafty.background('url(assets/images/game-background.png) repeat-x');
-  }
-});
+  _speed: 1,
 
-Crafty.c('RepeatedBackground', {
-  _current: null,
-  _next: null,
-  _width: 1500,
-  _numberOfTiles: 0,
-
-  init: function() {
-    this._current = Crafty.e('Background').attr({x: 0, y: 0, w: this._width, h: 700, z: -100});
-    this._numberOfTiles = 1;
-    this.bind('EnterFrame', this._onEnterFrame);
+  _scrollBackground: function(frame) {
+    Crafty.stage.elem.style.backgroundPosition = -frame.frame + 'px 0px';
   },
 
-  _onEnterFrame: function() {
+  init: function() {
+  },
 
+  image: function(url) {
+    Crafty.background('url(' + url + ')');
+    return this;
+  },
+
+  scroll: function(speed) {
+    this._speed = speed || 1;
+    Crafty.bind('EnterFrame', this._scrollBackground);
+    return this;
+  },
+
+  unload: function() {
+    Crafty.unbind('EnterFrame', this._scrollBackground);
+    return this;
   }
 });
